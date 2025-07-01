@@ -48,14 +48,14 @@ const items = ref<NavigationMenuItem[][]>([
       ]
     },
     {
-      label: 'Composables',
+      label: 'DBMS',
       icon: 'i-lucide-database',
       children: [
         {
-          label: 'defineShortcuts',
+          label: 'JDBC',
           icon: 'i-lucide-file-text',
           description: 'Define shortcuts for your application.',
-          to: '/composables/define-shortcuts'
+          to: '/dbms/jdbc'
         },
         {
           label: 'useOverlay',

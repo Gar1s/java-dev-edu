@@ -1,0 +1,7 @@
+{
+    "id": "7",
+    "url": "https://www.baeldung.com/java-equals-hashcode-contracts",
+    "title": "Baeldung: Java equals() and hashCode() Contracts",
+    "category": "java-core",
+    "subcategory": "equals-and-hashcode"
+}
