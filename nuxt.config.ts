@@ -4,5 +4,5 @@ export default defineNuxtConfig({
   css: ["~/assets/css/main.css"],
   compatibilityDate: '2025-05-15',
   devtools: { enabled: true },
-  ssr: true,
+  ssr: false,
 })
