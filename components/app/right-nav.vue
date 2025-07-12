@@ -1,7 +1,9 @@
 <script setup lang="ts">
 import type { NavigationMenuItem } from '@nuxt/ui'
 
-const items = ref<NavigationMenuItem[][]>([
+const activeSection = ref('')
+
+const items = computed<NavigationMenuItem[][]>(() => [
   [
     {
       label: 'On this page',
@@ -10,30 +12,66 @@ const items = ref<NavigationMenuItem[][]>([
     },
     {
       label: 'OOP',
-      href: '#oop'
+      href: '#oop',
+      active: activeSection.value === 'oop'
     },
     {
       label: 'Abstract classes and Interfaces',
-      href: '#abstract_interfaces'
+      href: '#abstract_interfaces',
+      active: activeSection.value === 'abstract_interfaces'
     },
     {
       label: 'Immutability',
-      href: '#immutability'
+      href: '#immutability',
+      active: activeSection.value === 'immutability'
     },
     {
       label: 'Java Strings',
-      href: '#java_strings'
+      href: '#java_strings',
+      active: activeSection.value === 'java_strings'
     },
     {
       label: 'Equals and Hashcode',
-      href: '#equals_and_hashcode'
+      href: '#equals_and_hashcode',
+      active: activeSection.value === 'equals_and_hashcode'
     },
     {
       label: 'Exceptions',
-      href: '#exceptions'
+      href: '#exceptions',
+      active: activeSection.value === 'exceptions'
     }
   ]
 ])
+
+// Track active section based on scroll position
+onMounted(() => {
+  const sections = ['oop', 'abstract_interfaces', 'immutability', 
+  'java_strings', 'equals_and_hashcode', 'exceptions']
+  
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          activeSection.value = entry.target.id
+        }
+      })
+    },
+    {
+      rootMargin: '-20% 0px -80% 0px'
+    }
+  )
+
+  sections.forEach((section) => {
+    const element = document.getElementById(section)
+    if (element) {
+      observer.observe(element)
+    }
+  })
+
+  onUnmounted(() => {
+    observer.disconnect()
+  })
+})
 </script>
 
 <template>
