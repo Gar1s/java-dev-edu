@@ -3,6 +3,17 @@ import type { NavigationMenuItem } from '@nuxt/ui'
 
 const activeSection = ref('')
 
+const activeClass = 'text-blue-600 font-semibold bg-blue-50 border-l-2 border-blue-600 pl-2'
+
+const navigationSections = [
+  { label: 'OOP', href: 'oop' },
+  { label: 'Abstract classes and Interfaces', href: 'abstract_interfaces' },
+  { label: 'Immutability', href: 'immutability' },
+  { label: 'Java Strings', href: 'java_strings' },
+  { label: 'Equals and Hashcode', href: 'equals_and_hashcode' },
+  { label: 'Exceptions', href: 'exceptions' }
+]
+
 const items = computed<NavigationMenuItem[][]>(() => [
   [
     {
@@ -10,43 +21,20 @@ const items = computed<NavigationMenuItem[][]>(() => [
       type: 'label',
       class: 'text-black-500 text-sm font-semibold'
     },
-    {
-      label: 'OOP',
-      href: '#oop',
-      active: activeSection.value === 'oop'
-    },
-    {
-      label: 'Abstract classes and Interfaces',
-      href: '#abstract_interfaces',
-      active: activeSection.value === 'abstract_interfaces'
-    },
-    {
-      label: 'Immutability',
-      href: '#immutability',
-      active: activeSection.value === 'immutability'
-    },
-    {
-      label: 'Java Strings',
-      href: '#java_strings',
-      active: activeSection.value === 'java_strings'
-    },
-    {
-      label: 'Equals and Hashcode',
-      href: '#equals_and_hashcode',
-      active: activeSection.value === 'equals_and_hashcode'
-    },
-    {
-      label: 'Exceptions',
-      href: '#exceptions',
-      active: activeSection.value === 'exceptions'
-    }
+    ...navigationSections.map(section => {
+      return {
+        label: section.label,
+        href: `#${section.href}`,
+        active: activeSection.value === section.href,
+        class: activeSection.value === section.href ? activeClass : ''
+      }
+    })
   ]
 ])
 
 // Track active section based on scroll position
 onMounted(() => {
-  const sections = ['oop', 'abstract_interfaces', 'immutability', 
-  'java_strings', 'equals_and_hashcode', 'exceptions']
+  const sections = navigationSections.map(section => section.href)
   
   const observer = new IntersectionObserver(
     (entries) => {
