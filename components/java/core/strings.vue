@@ -77,7 +77,7 @@ const { data: links } = await useAsyncData<Link[]>('stringsLinks',
 
 <template>
     <div class="bg-white rounded-lg py-2">
-        <h2 class="text-3xl font-semibold text-gray-700 mb-2 underline">Java Strings</h2>
+        <h2 id="java_strings" class="text-3xl font-semibold text-gray-700 mb-2 underline">Java Strings</h2>
 
         <section class="mt-10 mb-8">
             <h3 class="text-2xl font-semibold mb-3 italic">Why String Is Immutable in Java?</h3>

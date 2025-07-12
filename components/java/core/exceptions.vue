@@ -13,7 +13,7 @@ const { data: links } = await useAsyncData<Link[]>('exceptionsLinks',
 
 <template>
     <div>
-        <h2 class="text-3xl font-semibold text-gray-700 mb-2 underline">
+        <h2 id="exceptions" class="text-3xl font-semibold text-gray-700 mb-2 underline">
             Exception Handling
         </h2>
 
