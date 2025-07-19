@@ -1,6 +1,6 @@
 <template>
     <div class="bg-white rounded-lg py-2">
-        <h2 class="text-3xl font-semibold text-gray-700 mb-2 underline">Immutability and the <span
+        <h2 id="immutability" class="text-3xl font-semibold text-gray-700 mb-2 underline">Immutability and the <span
                 class="text-emerald-500">"final"</span> keyword</h2>
         <section class="mt-12 mb-4">
             <h3 class="text-2xl font-semibold mb-3">Links:</h3>

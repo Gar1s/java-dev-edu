@@ -78,7 +78,7 @@ const { data: links } = await useAsyncData<Link[]>('equalsAndHashCodeLinks',
 
 <template>
     <div>
-        <h2 class="text-3xl font-semibold text-gray-700 mb-2 underline">
+        <h2 id="equals_and_hashcode" class="text-3xl font-semibold text-gray-700 mb-2 underline">
             Java <code class="text-emerald-500">equals()</code> and <code class="text-emerald-500">hashCode()</code>
             contracts
         </h2>

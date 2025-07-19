@@ -1,6 +1,6 @@
 <template>
     <div class="bg-white rounded-lg py-8">
-        <h2 class="text-3xl font-semibold text-gray-700 mb-6 underline">OOP (Object-Oriented Programming)</h2>
+        <h2 id="oop" class="text-3xl font-semibold text-gray-700 mb-6 underline">OOP (Object-Oriented Programming)</h2>
         <p class="mb-8">
             Object-Oriented Programming (OOP) is a paradigm that organizes software around objects—entities that combine
             data (fields) and behavior (methods). Java fully supports OOP, making it essential for writing clean,

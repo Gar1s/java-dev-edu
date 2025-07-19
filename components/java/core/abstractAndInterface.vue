@@ -57,7 +57,7 @@ const columns: TableColumn<unknown>[] = [
 
 <template>
     <div class="bg-white rounded-lg py-2">
-        <h2 class="text-3xl font-semibold text-gray-700 mb-6 underline">Abstract classes and Interfaces</h2>
+        <h2 id="abstract_interfaces" class="text-3xl font-semibold text-gray-700 mb-6 underline">Abstract classes and Interfaces</h2>
         <section class="mt-10 mb-8">
             <h3 class="text-2xl font-semibold mb-3 italic">Abstract class</h3>
             <p class="mb-3">
