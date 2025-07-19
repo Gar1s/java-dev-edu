@@ -1,18 +1,23 @@
 <script setup lang="ts">
 import type { NavigationMenuItem } from '@nuxt/ui'
 
+// Define props to receive array from parent
+interface Props {
+  sections?: Array<{ label: string; href: string }>
+}
+
+const props = withDefaults(defineProps<Props>(), {
+  sections: () => [
+    { label: 'Custom Section 1', href: 'section1' },
+    { label: 'Custom Section 2', href: 'section2' },
+    { label: 'Custom Section 3', href: 'section3' }
+  ]
+})
+
 const activeSection = ref('')
 
 const activeClass = 'text-blue-600 font-semibold bg-blue-50 border-l-2 border-blue-600 pl-2'
 
-const navigationSections = [
-  { label: 'OOP', href: 'oop' },
-  { label: 'Abstract classes and Interfaces', href: 'abstract_interfaces' },
-  { label: 'Immutability', href: 'immutability' },
-  { label: 'Java Strings', href: 'java_strings' },
-  { label: 'Equals and Hashcode', href: 'equals_and_hashcode' },
-  { label: 'Exceptions', href: 'exceptions' }
-]
 
 const items = computed<NavigationMenuItem[][]>(() => [
   [
@@ -21,7 +26,7 @@ const items = computed<NavigationMenuItem[][]>(() => [
       type: 'label',
       class: 'text-black-500 text-sm font-semibold'
     },
-    ...navigationSections.map(section => {
+    ...props.sections.map(section => {
       return {
         label: section.label,
         href: `#${section.href}`,
@@ -34,8 +39,8 @@ const items = computed<NavigationMenuItem[][]>(() => [
 
 // Track active section based on scroll position
 onMounted(() => {
-  const sections = navigationSections.map(section => section.href)
-  
+  const sections = props.sections.map(section => section.href)
+
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
@@ -64,6 +69,6 @@ onMounted(() => {
 
 <template>
   <div class="sticky" style="top: 2rem;">
-    <UNavigationMenu orientation="vertical" :items="items"/>
+    <UNavigationMenu orientation="vertical" :items="items" />
   </div>
 </template>

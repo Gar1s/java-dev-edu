@@ -14,7 +14,17 @@
             </div>
         </div>
         <div>
-            <AppRightNav />
+            <AppRightNav :sections="pageSections" />
         </div>
     </div>
 </template>
+<script setup>
+const pageSections = [
+    { label: 'OOP', href: 'oop' },
+    { label: 'Abstract classes and Interfaces', href: 'abstract_interfaces' },
+    { label: 'Immutability', href: 'immutability' },
+    { label: 'Java Strings', href: 'java_strings' },
+    { label: 'Equals and Hashcode', href: 'equals_and_hashcode' },
+    { label: 'Exceptions', href: 'exceptions' }
+]
+</script>
