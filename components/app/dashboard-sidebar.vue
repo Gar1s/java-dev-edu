@@ -21,6 +21,7 @@ const items = ref<NavigationMenuItem[][]>([
         },
         {
           label: 'Collections',
+          to: '/java/collections',
           icon: 'i-lucide-library',
         },
         {
