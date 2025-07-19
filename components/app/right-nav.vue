@@ -18,6 +18,19 @@ const activeSection = ref('')
 
 const activeClass = 'text-blue-600 font-semibold bg-blue-50 border-l-2 border-blue-600 pl-2'
 
+// Add click handler function
+const handleSectionClick = (href: string) => {
+  const sectionId = href.replace('#', '')
+  activeSection.value = sectionId
+  
+  const element = document.getElementById(sectionId)
+  if (element) {
+    element.scrollIntoView({ 
+      behavior: 'smooth',
+      block: 'start'
+    })
+  }
+}
 
 const items = computed<NavigationMenuItem[][]>(() => [
   [
@@ -69,6 +82,20 @@ onMounted(() => {
 
 <template>
   <div class="sticky" style="top: 2rem;">
-    <UNavigationMenu orientation="vertical" :items="items" />
+    <nav class="space-y-1">
+      <div class="text-black-500 text-sm font-semibold mb-3">On this page</div>
+      <a
+        v-for="section in props.sections"
+        :key="section.href"
+        :href="`#${section.href}`"
+        :class="[
+          'block px-2 py-2 text-sm rounded-md transition-colors cursor-pointer',
+          activeSection === section.href ? activeClass : 'text-gray-600 hover:text-blue-600 hover:bg-gray-50'
+        ]"
+        @click.prevent="handleSectionClick(`#${section.href}`)"
+      >
+        {{ section.label }}
+      </a>
+    </nav>
   </div>
 </template>
