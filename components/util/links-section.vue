@@ -1,5 +1,5 @@
 <template>
-    <section class="mt-10 mb-8">
+    <section id="linksSection" class="mt-10 mb-8">
         <h3 class="text-2xl font-semibold mb-3 italic">
             <UIcon name="i-lucide-link" class="size-5"/>
             Useful Links:

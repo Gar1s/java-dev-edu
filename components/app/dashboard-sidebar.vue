@@ -109,8 +109,8 @@ const items = ref<NavigationMenuItem[][]>([
     {
       label: 'GitHub',
       icon: 'i-simple-icons-github',
-      badge: '3.8k',
-      to: 'https://github.com/nuxt/ui',
+      badge: 'edducation',
+      to: 'https://github.com/Gar1s/java-dev-edu',
       target: '_blank'
     },
     {
